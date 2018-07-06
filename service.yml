@@ -1,0 +1,21 @@
+apiVersion: v1 
+kind: Service 
+metadata: 
+  labels: 
+    run: tomcatserv
+  name: tomcatserv
+  namespace: default 
+  selfLink: /api/v1/namespaces/default/services/nginx2 
+spec: 
+#  externalTrafficPolicy: Cluster 
+  ports: 
+  - nodePort: 
+    port: 8080 
+    protocol: TCP 
+    targetPort: 8080 
+  selector: 
+    run: tomcatserv
+#  sessionAffinity: None 
+  type: NodePort 
+#status: 
+#  loadBalancer: {}
